@@ -1,0 +1,26 @@
+{
+  "name": "exercise2_quick_notes",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShawnWhy/VicountofSandwich.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ShawnWhy/VicountofSandwich/issues"
+  },
+  "homepage": "https://github.com/ShawnWhy/VicountofSandwich#readme",
+  "description": ""
+}

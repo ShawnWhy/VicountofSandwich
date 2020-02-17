@@ -1,0 +1,84 @@
+
+<html>
+<head>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+			<link rel="stylesheet" href="../../public/stylesheet.css" type="text/css">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+<body>
+    <div class="container">
+
+<div><h1><center>The Viscount of all Sandwiches<center></h1></div>
+
+<div><h3><center>Create Your Own Burgers!</center></center></h3></div>
+
+<div class="uneaten_list_container">
+  {{#each burgers}}
+  <div class="uneaten">
+  <div class = "{{topBun}}"></div>
+  {{#if (eq burgers.lettice "true")}}
+  <div class="lettice"></div>{{/if}}
+  <div class="{{cheese}}"></div>
+  <div class="{{meat}}"></div>
+  <bottom class = "eat_button"id="{{id}}">EAT</bottom>
+   </div>{{/each}}
+</div>
+
+<div class="eaten_list_container">
+  {{#each eatenBurger}}
+  <div>{{name}}</div>
+  {{/each}}
+</div>
+<!-- (eq model.status "complete") -->
+
+<form id="burger_form_container">
+ <div class ="topbun topbun_form_container_white"><select class="topBunInput input" name="topBun">
+                    <option value="white" selected>Select Top Bun</option>
+                    <option value="white">white</option>
+                    <option value="oats">oats</option>
+                    <option value="wheat">wheat</option>
+                    </select></div>
+<div class="cheese cheese_form_container_prov"><select class="cheeseInput input" name="cheese">
+                    <option value="provolone" selected>please Select Cheese</option>
+                    <option value="provolone">provolone</option>
+                     <option value="cheddar">cheddar</option>
+                    <option value="blue">blue</option>
+                    <option value="none">none</option>
+                    </select></div>
+<div class="veggies veggies_form_container_on"><select class= "veggiesInput input" name="Veggies">
+    <option value=true selected>Vegitables?</option>
+    <option value=false>no</option>
+    <option value=true>yes</option>
+</select></div>
+<div class="meat meat_form_container_chicken"><select class= "MeatInput input" name="meat">
+                    <option value="chicken" selected>select meat </option>
+                    <option value="chicken">chicken</option>
+                    <option value="beef">beef</option>
+                    <option value="turkey">turkey</option>
+					<option value="tofu">tofu</option> 
+                  </select></div>
+<div class="bottombun bottombun_form_container_white"><select class=" input bottomBunInput" name="bottomBun">
+    <option value="white" selected>Select Bottom Bun</option>
+    <option value="white">white</option>
+    <option value="oats">oats</option>
+    <option value="wheat">wheat</option> 
+    </select></div>
+                   
+<div class="plate">                 
+<input class="input" name = "customer" value ="name" placeholder="your name please"> <button id="submit_burger" type="submit">Submit</button>
+</div> 
+</form>
+
+
+<script src="../../public/script.js" type="text/javascript"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+</body>
+
+
+</html>
