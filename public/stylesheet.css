@@ -83,6 +83,25 @@
     margin:5px auto;
 
 }
+.beefsmall{
+    background-color:lightcoral;
+}
+.chickensmall{
+    background-color:palegoldenrod;
+
+
+}
+.turkeysmall{
+    background-color:lightgray;
+
+
+}
+.tofusmall{
+    background-color:whitesmoke;
+
+
+}
+
 .meat_form_container_turkey{
     background-color:lightgray;
     height:90px;
@@ -167,6 +186,89 @@ body{
     background-color: yellow;
     border-radius: 20px;
 }
+.topbunsmall{
+
+    height:20px;
+    width:100px;
+    text-align:center;
+    margin:auto;
+    border-radius:30px 30px 10px 10px;
+    color:darkgoldenrod;
+    font-size:small;
+    font-weight:bold;
+}
+.bottombunsmall{
+    height:20px;
+    width:100px;
+    text-align:center;
+    margin:auto;
+    border-radius:10px 10px 30px 30px;
+
+
+}
+
+.white{
+    background-color:blanchedalmond;
+}
+.wheat{
+    background-color:burlywood;
+}
+.oats{
+    background-color:brown;
+}
+.letticesmall{
+    background-color: lightgreen;
+    width:100px;
+    height:5px;
+
+}
+.cheesesmall{
+    width:100px;
+    height:5px;
+}
+
+.bluesmall{
+    background-color: lightsteelblue;
+}
+.cheddarsmall{
+    background-color: orange;
+}
+.provolonesmall{
+    background-color: whitesmoke;
+}
+.meatsmall{
+    width:100px;
+    height:20px;
+    border-radius:7px;
+}
+.nonesmall{
+    height:0px;
+}
+
+.eat_button{
+    height:30px;
+    width:30px;
+    margin:2px auto;
+    font-size: small;
+    font-weight: bold;
+    color:red;
+    background-color:yellow;
+    border-radius: 10px;
+    text-align:center;
+}
+.eaten_list_container{
+    background-color: gainsboro;
+    color:darkgray;
+    font-weight:bold;
+    border:2px solid darkgray;
+    padding:4px;
+    border-radius: 8px;
+
+}
+
+
+
+
 
 /* .container{
     widows: 100%;

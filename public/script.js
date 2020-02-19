@@ -36,9 +36,9 @@ $(".veggiesInput").on("change", function(event){
 
     var veggies = $('.veggiesInput').val()
     switch(veggies){
-        case "true":
+        case "1":
             $(".veggies").attr( "class","veggies veggies_form_container_on");break;
-        case "false":
+        case "0":
             $(".veggies").attr("class","veggies veggies_form_container_off");break;}
         
 })
@@ -46,8 +46,8 @@ $(".meatInput").on("change", function(event){
     event.preventDefault;
     event.stopPropagation;
 
-    var cheese = $('.meatInput').val()
-    switch(cheese){
+    var meat = $('.meatInput').val()
+    switch(meat){
         case "chicken":
             $(".meat").attr( "class","meat meat_form_container_chicken ");break;
         case "beef":
@@ -71,28 +71,50 @@ $(".bottomBunInput").on("change", function(event){
             $(".bottombun").attr("class","bottombun bottombun_form_container_wheat");break;
         case "oats":
             $(".bottombun").attr("class","bottombun bottombun_form_container_oats");break }
-})
-$("#submit_burger").on("click",function(event){
-    event.stopPropagation;
+});
+$(document).on("click", ".eat_button",function( ){
     event.preventDefault;
+    event.stopPropagation;
+    var id=this.id;
+    $.ajax({
+        url:"/api/burgers/"+id,
+        type:"PUT",
+    }).then(function(){
+        console.log("shit"+id + "is eaten");
+        location.reload();
+
+    })
+})
+$("#submit_burger").on("click",function(){
+    event.stopPropagation;
+    // event.preventDefault;
+    // console.log("createburger!");
     var burger = {
-              Top_bun: $(".topBunInput").val().trim(),
-              cheese:$("cheeseInput").val().trim(),
-              lettice:$("veggiesInput").val().trim(),
-              bottom_bun:$("bottomBunInput").val().trim(),
-              name: $("customer").val().trim(),
+              top_bun: $(".topBunInput").val(),
+              cheese:$(".cheeseInput").val(),
+              lettice:$(".veggiesInput").val(),
+              meat:$(".meatInput").val(),
+              bottom_bun:$(".bottomBunInput").val(),
+              name: $(".customer_name").val().trim(),
               eaten:0
             };
+            // console.log(burger);
+            // console.log(burger.cheese);
+            // console.log(burger.lettice);
+
+
         
-            $.ajax("/api/burgers", {
+            $.ajax( {
+                url:"/",
               type: "POST",
               data: burger
             }).then(
               function() {
+                //   console.log(burger);
                 console.log("created new burger");
                 location.reload();
-              }
-            );
+              })
+            
           });
         
 

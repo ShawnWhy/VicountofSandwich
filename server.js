@@ -18,6 +18,14 @@ app.use(express.static("public"));
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
+// Handlebars.registerHelper('if_eq', function(a, b, opts) {
+//   if (a == b) {
+//       return opts.fn(this);
+//   } else {
+//       return opts.inverse(this);
+//   }
+// });
+
 var connection = mysql.createConnection({
   host: "localhost",
   port: 3306,
@@ -37,16 +45,16 @@ connection.connect(function(err) {
 
 
 app.get("/", function(req, res) {
-  connection.query("SELECT * FROM burgers WHERE eaten=0;", function(err, data) {
+  connection.query("SELECT id, top_bun, IF(lettice,true,false)lettice, cheese, meat,bottom_bun, name, eaten FROM burgers WHERE eaten=0;", function(err, data) {
     if (err) throw err;
     var uneaten = data;
     connection.query("SELECT * FROM burgers WHERE eaten=1", function(err, data){
       if(err) throw err;
       var eaten=data;
 
-    res.render("index", { burgers : uneaten, eatenburger:eaten});
+    res.render("index", { burgers : uneaten, eatenBurger:eaten});
 
-    
+    // IF(completed, 'true', 'false') completed
       
     })
 
@@ -58,24 +66,28 @@ app.get("/", function(req, res) {
 // Post route -> back to home
 app.post("/", function(req, res) {
   // Test it
-  // console.log('You sent, ' + req.body.task);
+  // console.log('You sent, ' + req.body.cheese);
 
-  // Test it
-  // return res.send('You sent, ' + req.body.task);
+  // // Test it
+  // return res.json( req.body.cheese);
 
 
-connection.query("INSERT INTO burgers (top_bun, cheese, lettice, meat, bottom_bun, name, eaten) VALUES (?)", [req.body.top_bun, req.body.cheese, req.body.lettice, req.body.meat, req.body.bottom_bun, req.body.name, 0], function(err, result) {
+connection.query("INSERT INTO burgers (top_bun, cheese, lettice, meat, bottom_bun, name, eaten) VALUES (?,?,?,?,?,?,?)", [req.body.top_bun, req.body.cheese, req.body.lettice, req.body.meat, req.body.bottom_bun, req.body.name, req.body.eaten], function(err, result) {
     if (err) throw err;
+res.json({ id: result.insertId });
+console.log({ id: result.insertId });
 
-    res.redirect("/");
-  });
+// res.redirect("/");
+  // });
 });
-
+})
 app.put("/api/burgers/:id", function(req, res){
-  connection.query("UPDATE movies SET eaten=1 where id =?"[req.params.id], function(err, result){
-      if(err) {
-          return res.status(500).end();
-      }
+ var id = parseInt( req.params.id);
+ console.log(id)
+  connection.query("UPDATE burgers SET eaten=1 where id =?",[id], function(err, result){
+      if(err) throw err;
+      res.json({ id: result.insertId });
+
   })
 })
 // Start our server so that it can begin listening to client requests.

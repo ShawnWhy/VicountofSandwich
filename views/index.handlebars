@@ -1,22 +1,26 @@
 <div class="container">
 
-<div><h1 style="color:darkred"><center>The Viscount of all Sandwiches<center></h1></div>
+<div><h1 style="color:red;text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+"><center>The Viscount of all Sandwiches<center></h1></div>
 
-<div><h3 style="color:darkolivegreen"><center>Create Your Own Burgers!</center></center></h3></div>
+<div><h3 style="color:darkolivegreen;     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+"><center>Create Your Own Burgers!</center></center></h3></div>
 
 <div class="uneaten_list_container">
   {{#each burgers}}
   <div class="uneaten">
-  <div class = "{{topBun}}">{{name}}</div>
-  {{#if (eq burgers.lettice "true")}}
-  <div class="lettice"></div>{{/if}}
-  <div class="{{cheese}}"></div>
-  <div class="{{meat}}"></div>
-  <bottom class = "eat_button"id="{{id}}">EAT</bottom>
+  <div class ="topbunsmall {{top_bun}}">{{name}}</div>
+  {{#if lettice}}
+  <div class="letticesmall"></div>{{/if}}
+  <div class="cheesesmall {{cheese}}small"></div>
+  <div class="meatsmall {{meat}}small"></div>
+  <div class ="bottombunsmall {{bottom_bun}}"></div>
+  <botton type="button"class = "eat_button"id={{id}}>EAT</botton>
    </div>{{/each}}
 </div>
 
 <div class="eaten_list_container">
+  <h3>BURGER GRAVE</h3>
   {{#each eatenBurger}}
   <div>{{name}}</div>
   {{/each}}
@@ -38,9 +42,9 @@
                     <option value="none">none</option>
                     </select></div>
 <div class="veggies veggies_form_container_on"><select class= "veggiesInput input" name="Veggies">
-    <option value=true selected>Vegitables?</option>
-    <option value=false>no</option>
-    <option value=true>yes</option>
+    <option value=1 selected>Vegitables?</option>
+    <option value=0>no</option>
+    <option value=1>yes</option>
 </select></div>
 <div class="meat meat_form_container_chicken"><select class= "meatInput input" name="meat">
                     <option value="chicken" selected>select meat </option>
@@ -57,7 +61,7 @@
     </select></div>
                    
 <div class="plate">                 
-<input class="input" name = "customer" value ="name" placeholder="your name please"> <button id="submit_burger" type="submit">Submit</button>
+<input class="customer_name input" name = "customer" value ="name" placeholder="your name please"> <button id="submit_burger" type="submit">Submit</button>
 </div> 
 </form>
 
