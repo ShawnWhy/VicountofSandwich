@@ -26,13 +26,17 @@ app.set("view engine", "handlebars");
 //   }
 // });
 
+if(process.env.JAWSDB_URL){
+  connection=mysql.createConnection(process.env.JAWSDB_URL);
+}
+else{
 var connection = mysql.createConnection({
-  host: "e764qqay0xlsc4cz.cbetxkdyhwsb.us-east-1.rds.amazonaws.com	",
+  host: "localhost",
   port: 3306,
-  user: "rv4huu1ka85nkeji",
-  password: "w3ltve5w4qtgx8eg",
-  database: "wsll1xo04s2np85d"
-});
+  user: "root",
+  password: "password",
+  database: "Burgerlord_db"
+});};
 
 connection.connect(function(err) {
   if (err) {
