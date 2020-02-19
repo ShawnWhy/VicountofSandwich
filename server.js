@@ -27,11 +27,11 @@ app.set("view engine", "handlebars");
 // });
 
 var connection = mysql.createConnection({
-  host: "localhost",
+  host: "e764qqay0xlsc4cz.cbetxkdyhwsb.us-east-1.rds.amazonaws.com	",
   port: 3306,
-  user: "root",
-  password: "password",
-  database: "Burgerlord_db"
+  user: "rv4huu1ka85nkeji",
+  password: "w3ltve5w4qtgx8eg",
+  database: "wsll1xo04s2np85d"
 });
 
 connection.connect(function(err) {
